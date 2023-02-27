@@ -67,9 +67,12 @@ The purpose of this lab is to both get you familiar with using these non-github 
     
         1. The recurrence relation that describes the function's runtime:
             $$T(n) = aT(n/b) + f(n)$$
+            $$T(n) = T(n/3) + O(1)$$
 
         1. The solution to the recurrence you wrote above as provided by the master theorem:
             $$T(n) = \Theta()$$
+            $$T(n) = \Theta(logn)$$
+
 
         (Feel free to check your answers with me before moving on.)
     
@@ -82,29 +85,29 @@ The purpose of this lab is to both get you familiar with using these non-github 
 
         |                | `binary_search`           | `trinary_search`      |
         | -------------- | ------------------------- | --------------------- | 
-        | `n=2**0`       |                           |                       |
-        | `n=2**1`       |                           |                       |
-        | `n=2**2`       |                           |                       |
-        | `n=2**3`       |                           |                       |
-        | `n=2**4`       |                           |                       |
-        | `n=2**5`       |                           |                       |
-        | `n=2**6`       |                           |                       |
-        | `n=2**7`       |                           |                       |
-        | `n=2**8`       |                           |                       |
-        | `n=2**9`       |                           |                       |
-        | `n=2**10`      |                           |                       |
-        | `n=2**11`      |                           |                       |
-        | `n=2**12`      |                           |                       |
-        | `n=2**13`      |                           |                       |
-        | `n=2**14`      |                           |                       |
-        | `n=2**15`      |                           |                       |
-        | `n=2**16`      |                           |                       |
-        | `n=2**17`      |                           |                       |
-        | `n=2**18`      |                           |                       |
-        | `n=2**19`      |                           |                       |
-        | `n=2**20`      |                           |                       |
-        | `n=2**21`      |                           |                       |
-        | `n=2**22`      |                           |                       |
+        | `n=2**0`       |    0.137 usec                       |   0.107 usec                    |
+        | `n=2**1`       |    0.123 usec                       |   0.116 usec                    |
+        | `n=2**2`       |    0.127 usec                       |   0.121 usec                    |
+        | `n=2**3`       |    0.133 usec                       |   0.131 usec                    |
+        | `n=2**4`       |    0.156 usec                       |   0.141 usec                    |
+        | `n=2**5`       |    0.204 usec                       |   0.194 usec                    |
+        | `n=2**6`       |    0.369 usec                       |   0.372 usec                    |
+        | `n=2**7`       |    0.661 usec                       |   0.664 usec                    |
+        | `n=2**8`       |    1.254 usec                       |   1.277 usec                    |
+        | `n=2**9`       |    2.573 usec                       |   2.547 usec                    |
+        | `n=2**10`      |    5.034 usec                       |   5.068 usec                    |
+        | `n=2**11`      |    10.141 usec                       |  10.184 usec                     |
+        | `n=2**12`      |    20.620 usec                       |  20.683 usec                     |
+        | `n=2**13`      |    41.463 usec                      |   41.547 usec                    |
+        | `n=2**14`      |    82.751 usec                       |  82.721 usec                     |
+        | `n=2**15`      |    165.400 usec                       | 165.289 usec                      |
+        | `n=2**16`      |    330.507 usec                       | 330.394 usec                      |
+        | `n=2**17`      |    661.470 usec                       | 661.535 usec                      |
+        | `n=2**18`      |    1.327 msec                       |   1.327 msec                    |
+        | `n=2**19`      |    2.676 msec                       |   2.677 msec                    |
+        | `n=2**20`      |    5.371 msec                       |   5.374 msec                    |
+        | `n=2**21`      |    10.787 msec                       |  10.789 msec                     |
+        | `n=2**22`      |    21.670 msec                       |  21.681 msec                     |
 
 
 1. Use the master theorem to solve the following recurrence relations,
@@ -113,17 +116,17 @@ The purpose of this lab is to both get you familiar with using these non-github 
 
     | recurrence           | solution                       | practical application                     |
     | -------------------- | ------------------------------ | ----------------------------------------- |
-    | T(n) = T(n/2) + n    | $\Theta(                    )$ | runtime of the bad binary search          |
-    | T(n) = T(n/2) + 1    | $\Theta(                    )$ | runtime of the correct binary search      |
-    | T(n) = T(n/3) + 1    | $\Theta(                    )$ | runtime of "trinary search"               |
-    | T(n) = 2T(n/2) + 1   | $\Theta(                    )$ | runtime for [finding the median of an unsorted list](https://en.wikipedia.org/wiki/Quickselect) |
-    | T(n) = 2T(n/2) + n   | $\Theta(                    )$ | runtime of merge sort                     |
-    | T(n) = 3T(n/3) + n   | $\Theta(                    )$ | runtime of a trinary merge sort           |
-    | T(n) = T(n/2) + n^2  | $\Theta(                    )$ |                                           |
-    | T(n) = 2T(n/2) + n^2 | $\Theta(                    )$ |                                           |
-    | T(n) = 3T(n/2) + n^2 | $\Theta(                    )$ |                                           |
-    | T(n) = 3T(n/2) + n   | $\Theta(                    )$ | runtime of [Karatsuba's integer multiplication algorithm](https://en.wikipedia.org/wiki/Karatsuba_algorithm); HINT: Case 1 |
-    | T(n) = 7T(n/2) + n^2 | $\Theta(                    )$ | runtime of [Strassen's matrix multiplication algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm) |
+    | T(n) = T(n/2) + n    | $\Theta(       n             )$ | runtime of the bad binary search          |
+    | T(n) = T(n/2) + 1    | $\Theta(       logn            )$ | runtime of the correct binary search      |
+    | T(n) = T(n/3) + 1    | $\Theta(       logn             )$ | runtime of "trinary search"               |
+    | T(n) = 2T(n/2) + 1   | $\Theta(       nlogn             )$ | runtime for [finding the median of an unsorted list](https://en.wikipedia.org/wiki/Quickselect) |
+    | T(n) = 2T(n/2) + n   | $\Theta(       n             )$ | runtime of merge sort                     |
+    | T(n) = 3T(n/3) + n   | $\Theta(       n             )$ | runtime of a trinary merge sort           |
+    | T(n) = T(n/2) + n^2  | $\Theta(       n^2             )$ |                                           |
+    | T(n) = 2T(n/2) + n^2 | $\Theta(       n^2             )$ |                                           |
+    | T(n) = 3T(n/2) + n^2 | $\Theta(       n^2             )$ |                                           |
+    | T(n) = 3T(n/2) + n   | $\Theta(       n^log2(3)             )$ | runtime of [Karatsuba's integer multiplication algorithm](https://en.wikipedia.org/wiki/Karatsuba_algorithm); HINT: Case 1 |
+    | T(n) = 7T(n/2) + n^2 | $\Theta(       n^3             )$ | runtime of [Strassen's matrix multiplication algorithm](https://en.wikipedia.org/wiki/Strassen_algorithm) |
 
 1. Upload your changes to github (and not gitlab) by using the following steps.
 
